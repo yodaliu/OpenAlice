@@ -31,6 +31,7 @@ import { createReferenceBoardTools } from './tool/reference-board.js'
 import { createDerivativesTools } from './tool/derivatives.js'
 import { createIndexTools } from './tool/indices.js'
 import { createEconomyTools } from './tool/economy.js'
+import { createAutoQuantTools } from './tool/auto-quant.js'
 import { SessionStore } from './core/session.js'
 import { createInboxStore } from './core/inbox-store.js'
 import { ToolCenter } from './core/tool-center.js'
@@ -223,6 +224,7 @@ async function main() {
     toolCenter.register(createIndexTools(indexClient), 'indices')
   }
   toolCenter.register(createEconomyTools(economyClient, commodityClient), 'economy')
+  toolCenter.register(createAutoQuantTools(), 'auto-quant')
 
   console.log(`tool-center: ${toolCenter.list().length} tools registered`)
 
